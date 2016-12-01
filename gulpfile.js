@@ -27,7 +27,9 @@ if (env==='development') {
 }
 
 jsSources = [
-  'components/scripts/script.js'
+  'components/scripts/script.js',
+  'components/scripts/jquery.min.js',
+  'components/scripts/jqloader.js'
 ];
 sassSources = ['components/sass/style.scss'];
 htmlSources = [outputDir + '*.html'];
