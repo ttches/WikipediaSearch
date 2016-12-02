@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (e.keyCode == 13) {
       var searchTerm = document.getElementById("text-input").value;
       searchBank = [];
-      buildSearchBank(searchTerm);//api function(document.getElementById("text-input").value)
+      buildSearchBank(searchTerm.replace(" ", "+"));//api function(document.getElementById("text-input").value)
     }
   }, false);
 
