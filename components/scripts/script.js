@@ -11,23 +11,37 @@ document.addEventListener("DOMContentLoaded", function() {
 
   window.addEventListener('resize', changeHeight);
 
+  //
   //Selects and sends Search
-  var api = 'https://www.wikipedia.org//w/api.php?action=opensearch&format=json&search=test',
-    quoteBank = [];
+  //
+  var api = 'https://www.wikipedia.org//w/api.php?action=opensearch&format=json&search=',
+    searchBank = [];
 
-    //watches for enter to be pressed as a search
-    document.getElementById("text-input").addEventListener("keydown", function(e) {
-      if (e.keyCode == 13) {
-        logText();//api function(document.getElementById("text-input").value)
-      }
-    }, false);
+  //watches for enter to be pressed as a search
+  document.getElementById("text-input").addEventListener("keydown", function(e) {
+    if (e.keyCode == 13) {
+      var searchTerm = document.getElementById("text-input").value;
+      searchBank = [];
+      buildSearchBank(searchTerm);//api function(document.getElementById("text-input").value)
+    }
+  }, false);
 
-  function logText() {
-    console.log(document.getElementById("text-input").value);
+  //api function
+  function buildSearchBank(search) {
+    $.getJSON(api + search + "&callback=?", function(data) {
+      data.forEach(function(val) {
+        searchBank.push(val);
+      });
+      createHTML(searchBank);
+      document.getElementsByTagName('header')[0].style.paddingTop='0';
+    });
   }
 
+  //removes padding from header
+
+  //Only uses first sentence of returned API
   function truncFirstSentence(str) {
-    var periodIndex = str.indexOf('.');
+    var periodIndex = str.indexOf('. ');
     if (periodIndex >= 0) {
       return (str.substring(0, periodIndex + 1));
     } else {
@@ -35,19 +49,20 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-//api function
-  $.getJSON('https://www.wikipedia.org//w/api.php?action=opensearch&format=json&search=test&callback=?', function(data) {
-    data.forEach(function(val) {
-      quoteBank.push(val);
-    });
-    console.log(quoteBank[1][1],quoteBank[1][2]);
-    //createHTML(quoteBank)
-  });
+  //appends html from search bank
+  function createHTML(bank) {
+    var mainHTML = document.getElementsByTagName('main')[0];
+    mainHTML.innerHTML = "";
+    for (var i = 0; i < bank[1].length; i++) {
+      mainHTML.insertAdjacentHTML('beforeend',
+      `<a href="` + bank[3][i] + `">
+        <article>
+          <h2>` + bank[1][i] + `</h2>
+          <p>` + truncFirstSentence(bank[2][i]) + `</p>
+        </article>
+      </a>`);
+    }
+  }
 
-  /* want to return
-  function createHTML
-    for ( var i = 0; i < quotebank[1]; i++)
-      <a href="quotebank[3][i]"><h2>  quotebank[1][i] <h2>
-      <p> truncFirstSentence(quoteBank[2][i]) <p>
-  */
+  //buildSearchBank("test");
 });

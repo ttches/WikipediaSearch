@@ -4,13 +4,14 @@ body {
 }
 
 header {
-  margin-top: 150px;
+  padding-top: 150px;
   font-size: 1.3em;
 }
 
 main {
   display: block;
   margin: 0 auto;
+  padding-bottom: 6px
 }
 
 article {
@@ -29,7 +30,7 @@ article {
 
 #text-input {
   padding: 3px 5px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   border: none;
   @include border-radius(5px);
 }

@@ -122,7 +122,7 @@ body {
 
 /* line 6, ../../../components/sass/_layout.scss */
 header {
-  margin-top: 150px;
+  padding-top: 150px;
   font-size: 1.3em;
 }
 
@@ -130,9 +130,10 @@ header {
 main {
   display: block;
   margin: 0 auto;
+  padding-bottom: 6px;
 }
 
-/* line 16, ../../../components/sass/_layout.scss */
+/* line 17, ../../../components/sass/_layout.scss */
 article {
   text-align: left;
   max-width: 95%;
@@ -148,19 +149,19 @@ article:after {
   display: block;
   clear: both;
 }
-/* line 22, ../../../components/sass/_layout.scss */
+/* line 23, ../../../components/sass/_layout.scss */
 article h2 {
   font-size: 1.1em;
 }
-/* line 25, ../../../components/sass/_layout.scss */
+/* line 26, ../../../components/sass/_layout.scss */
 article p {
   font-size: .9em;
 }
 
-/* line 30, ../../../components/sass/_layout.scss */
+/* line 31, ../../../components/sass/_layout.scss */
 #text-input {
   padding: 3px 5px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   border: none;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -184,18 +185,20 @@ article p {
     font-size: .8em;
     padding: 5px 8px;
     width: 300px;
+    margin-bottom: 20px;
   }
 
-  /* line 21, ../../../components/sass/modules/_mediasmall.scss */
+  /* line 22, ../../../components/sass/modules/_mediasmall.scss */
   main {
-    max-width: 650px;
+    max-width: 80%;
+    padding-bottom: 50px;
   }
 
-  /* line 24, ../../../components/sass/modules/_mediasmall.scss */
+  /* line 26, ../../../components/sass/modules/_mediasmall.scss */
   article {
     padding: 8px 13px;
   }
-  /* line 26, ../../../components/sass/modules/_mediasmall.scss */
+  /* line 28, ../../../components/sass/modules/_mediasmall.scss */
   article h2 {
     margin-bottom: 8px;
   }
@@ -211,23 +214,24 @@ article p {
     font-size: .8em;
     padding: 5px 8px;
     width: 500px;
+    margin-bottom: 30px;
   }
 
-  /* line 13, ../../../components/sass/modules/_mediawide.scss */
+  /* line 14, ../../../components/sass/modules/_mediawide.scss */
   main {
     max-width: 950px;
   }
 
-  /* line 16, ../../../components/sass/modules/_mediawide.scss */
+  /* line 17, ../../../components/sass/modules/_mediawide.scss */
   article {
     padding: 8px 13px;
   }
-  /* line 19, ../../../components/sass/modules/_mediawide.scss */
+  /* line 20, ../../../components/sass/modules/_mediawide.scss */
   article h2 {
     font-size: 1.2em;
     margin-bottom: 8px;
   }
-  /* line 23, ../../../components/sass/modules/_mediawide.scss */
+  /* line 24, ../../../components/sass/modules/_mediawide.scss */
   article p {
     font-size: 1em;
   }
